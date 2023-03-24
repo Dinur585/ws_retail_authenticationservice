@@ -4,7 +4,6 @@ import groupId.ws_retail_authenticationservice.model.Credentials;
 import groupId.ws_retail_authenticationservice.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URISyntaxException;
