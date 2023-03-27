@@ -14,18 +14,20 @@ import java.net.URISyntaxException;
 @RequestMapping("/api/v1/auth")
 public class VaultContoller {
 
-
-
+    //service layer bean
     @Autowired
     private AuthService authService;
 
+    //post mapping for login functionality
     @PostMapping("/login")
-    public Boolean loginReq(@RequestBody Credentials loginUser) throws URISyntaxException {
+    public Boolean loginReq(@RequestBody Credentials loginUser) throws Exception {
         return authService.loginUserService(loginUser);
     }
 
+
+    //post mapping for register user functionality
     @PostMapping("/register")
-    public void registerReq(@RequestBody Credentials registerUser) throws URISyntaxException {
+    public void registerReq(@RequestBody Credentials registerUser) {
         authService.registerUserService(registerUser);
     }
 }
