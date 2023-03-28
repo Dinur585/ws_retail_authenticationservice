@@ -24,7 +24,7 @@ public class VaultContoller {
 
     //post mapping for login functionality
     @PostMapping("/login")
-    public ResponseEntity<Object> loginReq(@RequestBody Credentials loginUser) throws Exception {
+    public ResponseEntity<Object> loginReq(@RequestBody Credentials loginUser) {
 
         try{
             isAuthenticated = authService.loginUserService(loginUser);

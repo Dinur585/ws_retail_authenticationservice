@@ -43,7 +43,7 @@ public class AuthService {
     }
 
     //method to check if login creds are present in vault and return a boolean if credentials are present or not
-    public Boolean loginUserService(Credentials loginUser) throws Exception{
+    public Boolean loginUserService(Credentials loginUser) throws AccessDeniedException{
         VaultKeyValueOperations vaultKeyValueOperations = vaultTemplate.opsForKeyValue("secret/data/ws_retail_authenticationservice",
                 VaultKeyValueOperationsSupport.KeyValueBackend.KV_2);
         VaultResponseSupport response = vaultKeyValueOperations.get(loginUser.getUsername(), Credentials.class);
