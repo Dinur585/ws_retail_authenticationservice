@@ -1,6 +1,5 @@
 package groupId.ws_retail_authenticationservice.service;
 
-import groupId.ws_retail_authenticationservice.config.PasswordEncoder;
 import groupId.ws_retail_authenticationservice.exception.AccessDeniedException;
 import groupId.ws_retail_authenticationservice.model.Credentials;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +48,10 @@ public class AuthService {
                 VaultKeyValueOperationsSupport.KeyValueBackend.KV_2);
         VaultResponseSupport response = vaultKeyValueOperations.get(loginUser.getUsername(), Credentials.class);
 
+
+        if (response==null){
+            throw new AccessDeniedException("Access denied");
+        }
         //cast response object to credentials model
         Credentials credentials = (Credentials) response.getData();
         if(loginUser.getUsername().equals(credentials.getUsername()) && encoder.matches(loginUser.getPassword(), credentials.getPassword())){
