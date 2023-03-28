@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    vault:
+      kv:
+        enabled: 'true'
+      scheme: http
+      authentication: TOKEN
+      host: 127.0.0.1
+      token: vault-plaintext-root-token
+      port: '8200'
+  config:
+    import: vault://
+  application:
+    name: ws-retail-authenticationservice
+
+server:
+  port: '9001'
