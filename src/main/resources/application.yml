@@ -7,11 +7,14 @@ spring:
       authentication: TOKEN
       host: 127.0.0.1
       token: vault-plaintext-root-token
-      port: 8200
+      port: '8200'
   config:
     import: vault://
   application:
     name: ws-retail-authenticationservice
 
-#server:
-#  port: '9001'
+  ssl:
+    key-alias: ws_retail
+    key-store: classpath:ws_retail.jks
+    key-store-type: JKS
+    key-store-password: password
