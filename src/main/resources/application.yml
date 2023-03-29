@@ -15,3 +15,8 @@ spring:
 
 server:
   port: '9001'
+  ssl:
+    key-alias: ws_retail
+    key-store: classpath:ws_retail.jks
+    key-store-type: JKS
+    key-store-password: password
